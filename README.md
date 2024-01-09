@@ -85,13 +85,18 @@ Make sure you have the following dependencies installed:
    pip install -r requirements.txt
    ```
 
-5. **Apply migrations:**
+5. **Install Tailwind CSS dependencies**
+```
+python manage.py tailwind install
+```
+
+6. **Apply migrations:**
 
    ```bash
    python manage.py migrate
    ```
 
-6. **Create a superuser (for creating new food items):**
+7. **Create a superuser (for creating new food items):**
 
    ```bash
    python manage.py createsuperuser
