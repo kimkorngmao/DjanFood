@@ -47,11 +47,6 @@ def Register(request):
         first_name = request.POST['first-name']
         last_name = request.POST['last-name']
 
-        print(username)
-        print(email)
-        print(password)
-        print(first_name)
-        print(last_name)
         try:
             user = User.objects.create_user(username=username, email=email, password=password)
             user.first_name = first_name
@@ -134,19 +129,22 @@ def UpdateProfile(request):
         email = request.POST.get('email')
         if User.objects.filter(username=username).exclude(id=request.user.id).exists():
             # Handle the case where the username is already taken
-            context = {'error': 'ឈ្មោះអ្នកប្រើប្រាស់នេះត្រូវបានប្រើជាមួយគណនីផ្សេងរួចហើយ'}  # Pass an error message to the template
-            return render(request, 'accounts/update_profile.html', context)
-        if User.objects.filter(email=email).exclude(id=request.user.id).exists():
-            context = {'error': 'អ៊ីម៉ែលនេះត្រូវបានប្រើជាមួយគណនីផ្សេងរួចហើយ'}
-            return render(request, 'accounts/update_profile.html', context)
-        # Update the user's information
-        request.user.first_name = first_name
-        request.user.last_name = last_name
-        request.user.username = username
-        request.user.email = email
-        request.user.save()
-        messages.success(request, "ការធ្វើបច្ចុប្បន្នភាពព័ត៍មានគណនីបានសម្រេច")
-
+            messages.error(request, "ឈ្មោះអ្នកប្រើប្រាស់នេះត្រូវបានប្រើជាមួយគណនីផ្សេងរួចហើយ")
+            # context = {'error': 'ឈ្មោះអ្នកប្រើប្រាស់នេះត្រូវបានប្រើជាមួយគណនីផ្សេងរួចហើយ'}  # Pass an error message to the template
+            # return render(request, 'accounts/update_profile.html', context)
+        elif User.objects.filter(email=email).exclude(id=request.user.id).exists():
+            messages.error(request, "អ៊ីម៉ែលនេះត្រូវបានប្រើជាមួយគណនីផ្សេងរួចហើយ")
+            # context = {'error': 'អ៊ីម៉ែលនេះត្រូវបានប្រើជាមួយគណនីផ្សេងរួចហើយ'}
+            # return render(request, 'accounts/update_profile.html', context)
+        else:
+            # Update the user's information
+            request.user.first_name = first_name
+            request.user.last_name = last_name
+            request.user.username = username
+            request.user.email = email
+            request.user.save()
+            messages.success(request, "ការធ្វើបច្ចុប្បន្នភាពព័ត៍មានគណនីបានសម្រេច")
+        
         return redirect('update_profile')
     else:
         return render(request, "accounts/update_profile.html")
