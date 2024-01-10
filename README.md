@@ -2,7 +2,7 @@
 
 # Online Food Ordering System
 
-Welcome to the Online Food Ordering System.
+Welcome to the Online Food Ordering System. This web application is designed to provide a seamless experience for users to browse and order delicious food items.
 
 ## Table of Contents
 
@@ -12,7 +12,7 @@ Welcome to the Online Food Ordering System.
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
+- [Preview](#preview)
 
 ## Features
 
