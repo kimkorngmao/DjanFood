@@ -16,3 +16,7 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+#main-container{
+    min-height: calc(100vh - 224px);
+}
