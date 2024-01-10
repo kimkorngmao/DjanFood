@@ -25,9 +25,9 @@ def Login(request):
         else:
             context = {
                 'username': username,
-                'password': password,
-                'error': 'ឈ្មោះអ្នកប្រើប្រាស់ឬលេខសម្ងាត់មិនត្រឹមត្រូវ'
+                'password': password
             }
+            messages.error(request, 'ឈ្មោះអ្នកប្រើប្រាស់ឬលេខសម្ងាត់មិនត្រឹមត្រូវ')
             return render(request, 'accounts/login.html', context)
     else:
         return render(request, 'accounts/login.html')
@@ -56,11 +56,10 @@ def Register(request):
             return redirect('home')
         except:
             if User.objects.filter(username=username).exclude(id=request.user.id).exists():
-                error_message = 'ឈ្មោះអ្នកប្រើប្រាស់នេះត្រូវបានប្រើជាមួយគណនីផ្សេងរួចហើយ'
+                messages.error(request, 'ឈ្មោះអ្នកប្រើប្រាស់នេះត្រូវបានប្រើជាមួយគណនីផ្សេងរួចហើយ')
             if User.objects.filter(email=email).exclude(id=request.user.id).exists():
-                error_message = 'អ៊ីម៉ែលនេះត្រូវបានប្រើជាមួយគណនីផ្សេងរួចហើយ'
+                messages.error(request, 'អ៊ីម៉ែលនេះត្រូវបានប្រើជាមួយគណនីផ្សេងរួចហើយ')
             context = {
-                'error': error_message,
                 'first_name': first_name,
                 'last_name': last_name,
                 'username': username,
@@ -110,9 +109,9 @@ def Dashboard(request):
                 'description': description,
                 'promotion_end_at': promotion_end_at,
                 'special_price': special_price,
-                'image_relative_url': image_relative_url,
-                'error': 'ការបន្ថែមមុខម្ហូបថ្មីបានបរាជ័យ'
+                'image_relative_url': image_relative_url
             }
+            messages.error(request, 'ការបន្ថែមមុខម្ហូបថ្មីបានបរាជ័យ')
             return render(request, 'accounts/dashboard.html', context)
 
     else:
@@ -130,12 +129,8 @@ def UpdateProfile(request):
         if User.objects.filter(username=username).exclude(id=request.user.id).exists():
             # Handle the case where the username is already taken
             messages.error(request, "ឈ្មោះអ្នកប្រើប្រាស់នេះត្រូវបានប្រើជាមួយគណនីផ្សេងរួចហើយ")
-            # context = {'error': 'ឈ្មោះអ្នកប្រើប្រាស់នេះត្រូវបានប្រើជាមួយគណនីផ្សេងរួចហើយ'}  # Pass an error message to the template
-            # return render(request, 'accounts/update_profile.html', context)
         elif User.objects.filter(email=email).exclude(id=request.user.id).exists():
             messages.error(request, "អ៊ីម៉ែលនេះត្រូវបានប្រើជាមួយគណនីផ្សេងរួចហើយ")
-            # context = {'error': 'អ៊ីម៉ែលនេះត្រូវបានប្រើជាមួយគណនីផ្សេងរួចហើយ'}
-            # return render(request, 'accounts/update_profile.html', context)
         else:
             # Update the user's information
             request.user.first_name = first_name
@@ -161,14 +156,14 @@ def ChangePassword(request):
         # Check if the old password is correct
         if not user.check_password(old_password):
             # Handle incorrect old password (e.g., display an error message)
-            context = {'error': 'Incorrect old password.'}
-            return render(request, 'accounts/change_password.html', context)
+            messages.error(request, 'លេខសម្ងាត់ចាស់មិនត្រឹមត្រូវ')
+            return render(request, 'accounts/change_password.html')
 
         # Check if the new passwords match
         if new_password != confirm_password:
             # Handle mismatched new passwords (e.g., display an error message)
-            context = {'error': 'New passwords do not match.'}
-            return render(request, 'accounts/change_password.html', context)
+            messages.error(request, 'លេខសម្ងាត់ថ្មីទាំងពីរមិនដូចគ្នា')
+            return render(request, 'accounts/change_password.html')
         
         # Set the new password
         user.set_password(new_password)

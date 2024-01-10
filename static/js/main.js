@@ -10,6 +10,17 @@ document.getElementById('toggler').addEventListener('click', () => {
   mobileMenu.classList.toggle('hidden');
 });
 
+// prevent link into the same url
+var navigationLinks = document.querySelectorAll('a');
+navigationLinks.forEach(function (link) {
+  link.addEventListener('click', function (event) {
+    // Prevent navigation if the link leads to the same page
+    if (link.href === window.location.href) {
+      event.preventDefault();
+    }
+  });
+});
+
 function AlertMessage(title, message, confirmBtnName="Confirm") {
   // Create main container
   const mainContainer = document.createElement("div");

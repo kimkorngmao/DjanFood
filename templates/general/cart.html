@@ -8,7 +8,7 @@
       {% for cart in carts %}
         <li class="flex py-6">
           <a href={% url "food_details" cart.food.id %} class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-            <img src="{% static cart.food.image_relative_url %}" alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch." class="h-full w-full object-cover object-center">
+            <img src="{% static cart.food.image_relative_url %}" alt="" class="h-full w-full object-cover object-center">
           </a>
           <div class="ml-4 flex flex-1 flex-col">
             <div>
@@ -50,7 +50,7 @@
       <div class="border-t border-gray-200 py-6">
         <div class="flex justify-between text-base font-medium text-gray-900">
           <p>Subtotal</p>
-          <p>{{total_cart_price}}</p>
+          <p>{{total_cart_price}}រៀល</p>
         </div>
         <p class="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
         <div class="mt-6">
@@ -64,4 +64,5 @@
 
 {% block scripts %}
   <script src={% static 'js/cart.js' %}></script>
+  <script src="{% static 'js/browser.js' %}"></script>
 {% endblock scripts %}

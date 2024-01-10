@@ -8,11 +8,7 @@
         {% csrf_token %}
         <h2 class="text-xl font-bold mb-2">ចុះឈ្មោះគណនី</h2>
         <p class="mb-5">Note: គណនីរបស់អ្នកនឹងត្រូវលុបចោលពី Database ក្នុងរយៈពេល២៤ម៉ោងបន្ទាប់ពីការចុះឈ្មោះរួច</p>
-        {% if error %}
-        <div class="p-4 my-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
-            {{error}}
-        </div>
-        {% endif %}
+        {% include "components/error_messages.html" %}
         <div class="flex items-center gap-4">
             <div class="mb-5 w-full">
                 <label for="first-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">នាមត្រកូល</label>
@@ -40,3 +36,7 @@
     </form>
 </main>
 {% endblock content %}
+
+{% block scripts %}
+  <script src="{% static 'js/form_browser.js' %}"></script>
+{% endblock scripts %}

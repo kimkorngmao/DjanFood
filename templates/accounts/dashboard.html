@@ -7,7 +7,7 @@
     <div>
         <h1 class="text-xl font-bold">សួស្តី {{ request.user.username }}</h1>
         <div class="my-5 flex gap-4">
-            <a href={% url 'dashboard' %} class="text-blue-600 hover:text-red-500 hover:underline duration-150">គ្រប់គ្រង</a>
+            <a href="/account/dashboard/" class="text-blue-600 hover:text-red-500 hover:underline duration-150">គ្រប់គ្រង</a>
             <a href={% url "update_profile" %} class="text-blue-600 hover:text-red-500 hover:underline duration-150">ព័ត៍មានផ្ទាល់ខ្លួន</a>
             <a href={% url "change_password" %} class="text-blue-600 hover:text-red-500 hover:underline duration-150">ប្តូរលេខសម្ងាត់</a>
             <a href={% url "logout" %} class="text-red-600">ចេញពីប្រព័ន្ធ</a>
@@ -16,19 +16,7 @@
         <p class="text-slate-500 mt-5 border-l-2 px-3 border-red-500 border-solid">សម្រាប់តែ Super User ប៉ុណ្ណោះដែលមានសិទ្ធក្នុងការបន្ថែមមុខម្ហូបថ្មី</p>
         <form method="POST" class="max-w-md mt-5">
             {% csrf_token %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50" role="alert">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            {% endif %}
-
-            {% if error %}
-            <div class="p-4 my-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
-                {{error}}
-            </div>
-            {% endif %}
+            {% include "components/error_messages.html" %}
             <div class="mb-5">
                 <label for="food-title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ឈ្មោះម្ហូប<span class="text-red-500">*</span></label>
                 <input type="text" name="food_title" id="food-title" value="{{title}}" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
@@ -62,3 +50,7 @@
     </div>
 </main>
 {% endblock content %}
+
+{% block scripts %}
+  <script src="{% static 'js/form_browser.js' %}"></script>
+{% endblock scripts %}

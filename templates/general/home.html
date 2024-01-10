@@ -14,7 +14,13 @@
                 </button>
                 {% if request.user.is_authenticated %}
                 <button class="py-2 px-5 text-sm text-white rounded-md bg-blue-600">
-                    <a href={% url "dashboard" %}>{{request.user.first_name}} {{request.user.last_name}}</a>
+                    <a href={% url "dashboard" %}>
+                        {% if first_name and last_name %}
+                            {{request.user.first_name}} {{request.user.last_name}}
+                        {% else %}
+                            {{request.user.username}}
+                        {% endif %}
+                    </a>
                 </button>
                 {% else %}
                 <button class="py-2 px-5 text-sm text-white rounded-md bg-blue-600">
