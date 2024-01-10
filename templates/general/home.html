@@ -32,9 +32,9 @@
     </div>
     <div class="max-w-screen-xl mx-auto p-5">
         <center><h1 class="text-2xl font-bold">មុខម្ហូបពិសេស<span class="text-red-600">សម្រាប់អ្នក</span></h1></center>
-        <div class="mt-10 flex flex-wrap justify-center gap-10">
+        <div class="st-cards-list mt-10">
         {% for food in foods %}
-            <div class="bg-white border border-gray-100 transition transform duration-400 hover:shadow-xl hover:scale-105 w-56 h-80 min-h-52 p-2 rounded-lg relative">
+        <div class="st-food-card bg-white border border-gray-100 transition transform duration-400 hover:shadow-xl hover:scale-105 w-full min-w-44 max-w-56 h-80 min-h-52 p-2 rounded-lg relative">
                 <span class="bg-red-100 border border-red-500 rounded-full text-primary text-sm poppins px-4 py-1 inline-block mb-2">
                     {{ food.category }}
                 </span>
