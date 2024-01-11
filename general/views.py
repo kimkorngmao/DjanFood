@@ -24,3 +24,6 @@ def cart(request):
 
 def about(request):
     return render(request, 'general/about.html')
+
+def search(request):
+    return render(request, 'general/search.html')

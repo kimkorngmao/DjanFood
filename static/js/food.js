@@ -1,7 +1,7 @@
 const decrementButton = document.getElementById('decrement-button');
 const incrementButton = document.getElementById('increment-button');
 const quantityInput = document.getElementById('food-quantity');
-const butNowButton = document.getElementById('buy-now-button')
+const buyNowButton = document.getElementById('buy-now-button')
 
 // Add event listeners
 decrementButton.addEventListener('click', decrementQuantity);
@@ -22,6 +22,6 @@ function incrementQuantity() {
     }
 }
 
-butNowButton.addEventListener('click',()=>{
+buyNowButton.addEventListener('click',()=>{
     AlertMessage("Please note","This website is made for educational purpose only.")
 })
