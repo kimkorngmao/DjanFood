@@ -23,12 +23,8 @@ def Login(request):
             # Redirect to a success page or view
             return redirect('home')
         else:
-            context = {
-                'username': username,
-                'password': password
-            }
             messages.error(request, 'ឈ្មោះអ្នកប្រើប្រាស់ឬលេខសម្ងាត់មិនត្រឹមត្រូវ')
-            return render(request, 'accounts/login.html', context)
+            return redirect('login')
     else:
         return render(request, 'accounts/login.html')
 
@@ -59,14 +55,7 @@ def Register(request):
                 messages.error(request, 'ឈ្មោះអ្នកប្រើប្រាស់នេះត្រូវបានប្រើជាមួយគណនីផ្សេងរួចហើយ')
             if User.objects.filter(email=email).exclude(id=request.user.id).exists():
                 messages.error(request, 'អ៊ីម៉ែលនេះត្រូវបានប្រើជាមួយគណនីផ្សេងរួចហើយ')
-            context = {
-                'first_name': first_name,
-                'last_name': last_name,
-                'username': username,
-                'email': email,
-                'password': password
-            }
-            return render(request, 'accounts/register.html', context)
+            return redirect('register')
     else:
         return render(request, 'accounts/register.html')
 
@@ -74,7 +63,8 @@ def Register(request):
 def Dashboard(request):
     if request.method == 'POST':
         if not request.user.is_superuser:
-            return render(request, 'accounts/dashboard.html', { 'error': 'អ្នកពុំមានសិទ្ធក្នុងការបន្ថែមនោះទេ' })
+            messages.error(request, 'អ្នកពុំមានសិទ្ធក្នុងការបន្ថែមនោះទេ')
+            return redirect('dashboard')
         # Get data from the HTML form
         title = request.POST.get('food_title')
         price = int(request.POST.get('food_price'))
@@ -102,17 +92,8 @@ def Dashboard(request):
 
             return redirect('dashboard')
         except Exception as e:
-            context = {
-                'title': title,
-                'price': price,
-                'category': category,
-                'description': description,
-                'promotion_end_at': promotion_end_at,
-                'special_price': special_price,
-                'image_relative_url': image_relative_url
-            }
             messages.error(request, 'ការបន្ថែមមុខម្ហូបថ្មីបានបរាជ័យ')
-            return render(request, 'accounts/dashboard.html', context)
+            return redirect('dashboard')
 
     else:
         # Render the form template (if GET request)
