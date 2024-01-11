@@ -45,6 +45,12 @@
             </form>
         </div>
     </div>
+    {% if cart_items_count > 0 %}
+    <div class="mt-5 px-7 py-4 rounded max-w-[700px] bg-green-500 flex items-center justify-between text-white">
+        <p><span class="text-base font-medium">ក្នុងកន្ត្រក់​ • </span>{{cart_items_count}}មុខ</p>
+        <p>{{total_cart_price}}</p>
+    </div>
+    {% endif %}
 </main>
 {% endblock content %}
 

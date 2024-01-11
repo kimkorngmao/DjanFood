@@ -44,11 +44,11 @@
                     <p class="text-gray-500 poppins text-sm text-center line-clamp-2">{{ food.description }}</p>
                     {% if food.special_price %}
                         <div class="flex items-center gap-2">
-                            <p class="text-blue-900 poppins text-md font-bold">{{food.special_price}} រៀល</p>
-                            <del class="text-sm text-red-500">{{food.price}} រៀល</del>
+                            <p class="text-blue-900 poppins text-md font-bold whitespace-nowrap">{{food.special_price}} រៀល</p>
+                            <del class="text-sm text-red-500 whitespace-nowrap">{{food.price}} រៀល</del>
                         </div>
                     {% else %}
-                        <p class="text-blue-900 poppins text-md font-bold">{{ food.price }}រៀល</p>
+                        <p class="text-blue-900 poppins text-md font-bold whitespace-nowrap">{{ food.price }}រៀល</p>
                     {% endif %}
                     <a href={% url "food_details" food.id %} class="cursor-pointer bg-teal-500 text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105">
                         កម្មង់ឥឡូវ
