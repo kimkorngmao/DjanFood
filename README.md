@@ -139,7 +139,7 @@ Feel free to contribute to the project. Please follow the [contribution guidelin
 
 ![image](https://github.com/kimkorngmao/DjanFood/assets/112237746/bf3e0a34-a4f5-44ce-9924-ee03d504b362)
 
-![image](https://github.com/kimkorngmao/DjanFood/assets/112237746/b18bc12b-be6b-4ef2-95d2-f97cd89b843b)
+![image](https://github.com/kimkorngmao/DjanFoodDeployment/assets/112237746/ce997301-4899-4fbe-a6e7-cb47406d4865)
 
 ![image](https://github.com/kimkorngmao/DjanFood/assets/112237746/a81149bf-6fcc-45d6-9896-71b4ddbf9487)
 
