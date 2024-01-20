@@ -7,20 +7,18 @@
     <h1 class="mb-6 px-5 text-xl font-bold">មុខម្ហូបទាំងអស់</h1>
     <div class="st-cards-list">
         {% for food in foods %}
-        <div class="st-food-card bg-white border border-gray-100 transition transform duration-400 hover:shadow-xl hover:scale-105 w-full max-w-56 aspect-[2/3] max-h-80 p-2 rounded-lg relative">
-                <span class="bg-red-100 border border-red-500 rounded-full text-primary text-[70%] poppins px-4 py-1 inline-block mb-2">
+        <div class="bg-white border border-gray-100 transition h-fit duration-400 hover:shadow-xl hover:scale-105 max-w-52 p-2 rounded-lg relative">
+                <span class="bg-red-100 text-[85%] border border-red-500 rounded-full poppins px-4 py-1 mb-2">
                     {{ food.category }}
                 </span>
-                <div class="w-full aspect-[3/2] overflow-hidden">
-                    <img class="mx-auto h-full transform transition duration-300 object-cover hover:scale-105" src="{% static food.image_relative_url %}" alt="">
-                </div>
-                <div class="flex flex-col items-center my-3 space-y-1">
-                    <h1 class="text-gray-900 poppins text-lg line-clamp-1 text-center">{{ food.title }}</h1>
+                <img class="mx-auto mt-2 w-full px-6 object-cover transition duration-300 hover:scale-105" src="{% static food.image_relative_url %}" alt="">
+                <div class="flex flex-col items-center mt-2 space-y-1">
+                    <h1 class="text-gray-900 poppins text-[100%] line-clamp-1 text-center">{{ food.title }}</h1>
                     <p class="text-gray-500 poppins text-sm text-center line-clamp-1 sm:line-clamp-2">{{ food.description }}</p>
                     {% if food.special_price %}
-                        <div class="flex items-center gap-2">
+                        <div class="relative">
                             <p class="text-blue-900 poppins text-md font-bold whitespace-nowrap">{{food.special_price}} រៀល</p>
-                            <del class="text-sm text-red-500 whitespace-nowrap">{{food.price}} រៀល</del>
+                            <del class="absolute bottom-4 left-0 text-sm text-red-500 whitespace-nowrap"><small>{{food.price}} រៀល</small></del>
                         </div>
                     {% else %}
                         <p class="text-blue-900 poppins text-md font-bold whitespace-nowrap">{{ food.price }}រៀល</p>

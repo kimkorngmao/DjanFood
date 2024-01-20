@@ -878,6 +878,38 @@ select {
   top: 57px;
 }
 
+.right-0 {
+  right: 0px;
+}
+
+.top-5 {
+  top: 1.25rem;
+}
+
+.bottom-5 {
+  bottom: 1.25rem;
+}
+
+.bottom-3 {
+  bottom: 0.75rem;
+}
+
+.-right-3 {
+  right: -0.75rem;
+}
+
+.-right-10 {
+  right: -2.5rem;
+}
+
+.-right-0 {
+  right: -0px;
+}
+
+.bottom-4 {
+  bottom: 1rem;
+}
+
 .z-40 {
   z-index: 40;
 }
@@ -992,6 +1024,10 @@ select {
   margin-top: 1.5rem;
 }
 
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
 .line-clamp-1 {
   overflow: hidden;
   display: -webkit-box;
@@ -1034,16 +1070,8 @@ select {
   display: none;
 }
 
-.aspect-\[4\/3\] {
-  aspect-ratio: 4/3;
-}
-
 .aspect-\[2\/3\] {
   aspect-ratio: 2/3;
-}
-
-.aspect-1 {
-  aspect-ratio: 1;
 }
 
 .aspect-\[3\/2\] {
@@ -1082,10 +1110,6 @@ select {
   height: 15rem;
 }
 
-.h-80 {
-  height: 20rem;
-}
-
 .h-\[400px\] {
   height: 400px;
 }
@@ -1102,40 +1126,69 @@ select {
   height: 100vh;
 }
 
-.h-auto {
-  height: auto;
+.h-12 {
+  height: 3rem;
 }
 
-.h-\[30\%\] {
-  height: 30%;
+.h-44 {
+  height: 11rem;
 }
 
-.h-\[30\] {
-  height: 30;
+.h-36 {
+  height: 9rem;
 }
 
-.max-h-24 {
-  max-height: 6rem;
+.h-32 {
+  height: 8rem;
+}
+
+.h-28 {
+  height: 7rem;
+}
+
+.h-\[\] {
+  height: ;
+}
+
+.h-\[25\%\] {
+  height: 25%;
+}
+
+.h-fit {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.h-10 {
+  height: 2.5rem;
+}
+
+.h-14 {
+  height: 3.5rem;
+}
+
+.h-16 {
+  height: 4rem;
+}
+
+.h-\[20\%\] {
+  height: 20%;
+}
+
+.h-\[18\%\] {
+  height: 18%;
+}
+
+.h-\[10\%\] {
+  height: 10%;
 }
 
 .max-h-80 {
   max-height: 20rem;
 }
 
-.max-h-44 {
-  max-height: 11rem;
-}
-
-.max-h-36 {
-  max-height: 9rem;
-}
-
-.min-h-24 {
-  min-height: 6rem;
-}
-
-.min-h-52 {
-  min-height: 13rem;
+.max-h-32 {
+  max-height: 8rem;
 }
 
 .w-2 {
@@ -1170,10 +1223,6 @@ select {
   width: 1.5rem;
 }
 
-.w-64 {
-  width: 16rem;
-}
-
 .w-\[90\%\] {
   width: 90%;
 }
@@ -1182,24 +1231,20 @@ select {
   width: 100%;
 }
 
-.w-\[\] {
-  width: ;
+.w-12 {
+  width: 3rem;
 }
 
-.w-\[50\%\] {
-  width: 50%;
+.w-44 {
+  width: 11rem;
 }
 
-.w-\[30\%\] {
-  width: 30%;
+.w-36 {
+  width: 9rem;
 }
 
-.w-screen {
-  width: 100vw;
-}
-
-.min-w-44 {
-  min-width: 11rem;
+.w-auto {
+  width: auto;
 }
 
 .min-w-60 {
@@ -1208,10 +1253,6 @@ select {
 
 .min-w-\[300px\] {
   min-width: 300px;
-}
-
-.max-w-24 {
-  max-width: 6rem;
 }
 
 .max-w-2xl {
@@ -1248,6 +1289,10 @@ select {
 
 .max-w-screen-xl {
   max-width: 1280px;
+}
+
+.max-w-52 {
+  max-width: 13rem;
 }
 
 .flex-1 {
@@ -1539,6 +1584,10 @@ select {
   padding: 1.25rem;
 }
 
+.p-3 {
+  padding: 0.75rem;
+}
+
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -1632,6 +1681,14 @@ select {
   line-height: 1;
 }
 
+.text-\[70\%\] {
+  font-size: 70%;
+}
+
+.text-\[90\%\] {
+  font-size: 90%;
+}
+
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -1657,24 +1714,24 @@ select {
   line-height: 1rem;
 }
 
-.text-\[50\%\] {
-  font-size: 50%;
+.text-\[10\%\] {
+  font-size: 10%;
 }
 
-.text-\[70\%\] {
-  font-size: 70%;
+.text-\[110\%\] {
+  font-size: 110%;
+}
+
+.text-\[100\%\] {
+  font-size: 100%;
 }
 
 .text-\[80\%\] {
   font-size: 80%;
 }
 
-.text-\[120\%\] {
-  font-size: 120%;
-}
-
-.text-\[90\%\] {
-  font-size: 90%;
+.text-\[85\%\] {
+  font-size: 85%;
 }
 
 .font-bold {
@@ -1772,20 +1829,8 @@ select {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.text-\[lg\] {
-  color: lg;
-}
-
-.text-\[80\] {
-  color: 80;
-}
-
 .text-\[\] {
   color: ;
-}
-
-.text-\[90\] {
-  color: 90;
 }
 
 .underline {
@@ -1950,9 +1995,8 @@ select {
     display: flex;
   }
 
-  .sm\:px-8 {
-    padding-left: 2rem;
-    padding-right: 2rem;
+  .sm\:h-\[25\%\] {
+    height: 25%;
   }
 
   .sm\:text-sm {
@@ -1964,13 +2008,6 @@ select {
 @media (min-width: 768px) {
   .md\:end-20 {
     inset-inline-end: 5rem;
-  }
-
-  .md\:line-clamp-2 {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
   }
 
   .md\:block {
@@ -2022,11 +2059,6 @@ select {
     background-color: rgb(55 65 81 / var(--tw-bg-opacity));
   }
 
-  .dark\:text-gray-400 {
-    --tw-text-opacity: 1;
-    color: rgb(156 163 175 / var(--tw-text-opacity));
-  }
-
   .dark\:text-white {
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -2040,11 +2072,6 @@ select {
   .dark\:placeholder-gray-400::placeholder {
     --tw-placeholder-opacity: 1;
     color: rgb(156 163 175 / var(--tw-placeholder-opacity));
-  }
-
-  .dark\:hover\:text-white:hover {
-    --tw-text-opacity: 1;
-    color: rgb(255 255 255 / var(--tw-text-opacity));
   }
 
   .dark\:focus\:border-blue-500:focus {
