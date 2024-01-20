@@ -9,6 +9,10 @@
     display: none;
 }
 
+body{
+    overflow-x: hidden;
+}
+
 #home-landing{
     background-color: #EEEEEE;
     background-image: url('../images/home-bg.jpg');
@@ -30,19 +34,19 @@
 }
 
 @media screen and (max-width: 775px) {
-    .cards-list{
+    .st-cards-list{
         grid-template-columns: 1fr 1fr 1fr;
     }
 }
 
 @media screen and (max-width: 590px) {
-    .cards-list{
+    .st-cards-list{
         grid-template-columns: 1fr 1fr;
     }
 }
 
-@media screen and (max-width: 395px) {
-    .cards-list{
+@media screen and (max-width: 325px) {
+    .st-cards-list{
         grid-template-columns: 1fr;
     }
 
