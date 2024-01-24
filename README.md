@@ -126,7 +126,10 @@ python manage.py tailwind install
 
 Feel free to contribute to the project. Please follow the [contribution guidelines](CONTRIBUTING.md).
 
-# Preview
+## Preview
+Link: https://djanfood.onrender.com/
+**Note:** 🐢Live demo may be slow due to our free hosting plan. Thank you for your patience.
+
 ![image](https://github.com/kimkorngmao/DjanFood/assets/112237746/80188f54-a316-4e7a-9c42-a10542b18c44)
 
 ![image](https://github.com/kimkorngmao/DjanFood/assets/112237746/6e029e57-0559-4010-b91f-fe8d37b81b3a)
