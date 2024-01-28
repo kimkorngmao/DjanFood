@@ -8,13 +8,13 @@
             <h1 class="text-2xl font-bold mb-4">DjanFood</h1>
             <p class="text-base mb-3">កម្មង់ភ្លាម ដឹកជូនភ្លែត</p>
             <p>សាកល្បងរសជាតិម្ហូបឆ្ងាញ់ៗមកពីហាងល្បីៗ</p>
-            <div class="flex items-center gap-4 mt-4">
+            <div class="flex items-center gap-4 mt-4 px-2">
                 <button class="py-2 px-5 text-sm text-white rounded-md bg-black">
-                    <a href={% url "food_dishes" %}>មុខម្ហូបទាំងអស់</a>
+                    <a href={% url "food_dishes" %} class="line-clamp-1">មុខម្ហូបទាំងអស់</a>
                 </button>
                 {% if request.user.is_authenticated %}
                 <button class="py-2 px-5 text-sm text-white rounded-md bg-blue-600">
-                    <a href={% url "dashboard" %}>
+                    <a href={% url "dashboard" %} class="line-clamp-1">
                         {% if first_name and last_name %}
                             {{request.user.first_name}} {{request.user.last_name}}
                         {% else %}
@@ -24,7 +24,7 @@
                 </button>
                 {% else %}
                 <button class="py-2 px-5 text-sm text-white rounded-md bg-blue-600">
-                    <a href={% url "login" %}>ចុះឈ្មោះដើម្បីបានប្រូម៉ូសិន</a>
+                    <a href={% url "login" %} class="line-clamp-1">ចុះឈ្មោះដើម្បីបានប្រូម៉ូសិន</a>
                 </button>
                 {% endif %}
             </div>
@@ -34,7 +34,7 @@
         <center><h1 class="mb-6 text-2xl font-bold">មុខម្ហូបពិសេស<span class="text-red-600">សម្រាប់អ្នក</span></h1></center>
         <div class="st-cards-list mt-10">
             {% for food in foods %}
-            <div class="bg-white border border-gray-100 transition h-fit duration-400 hover:shadow-xl hover:scale-105 max-w-52 p-5 sm:p-2 rounded-lg relative">
+            <div class="bg-white border border-gray-100 transition h-fit duration-400 hover:shadow-xl hover:scale-105 max-w-52 p-2 sm:p-5 rounded-lg relative">
                     <span class="bg-red-100 text-[85%] border border-red-500 rounded-full poppins px-4 py-1 mb-2">
                         {{ food.category }}
                     </span>
