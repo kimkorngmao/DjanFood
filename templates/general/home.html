@@ -1,0 +1,71 @@
+{% extends "components/base.html" %}
+{% load static %}
+{% block title %}ទំព័រដើម{% endblock title %}
+
+{% block content %}
+    <div id="home-landing" class="flex items-center justify-center w-full h-[400px]">
+        <div class="text-center">
+            <h1 class="text-2xl font-bold mb-4">DjanFood</h1>
+            <p class="text-base mb-3">កម្មង់ភ្លាម ដឹកជូនភ្លែត</p>
+            <p>សាកល្បងរសជាតិម្ហូបឆ្ងាញ់ៗមកពីហាងល្បីៗ</p>
+            <div class="flex items-center gap-4 mt-4 px-2">
+                <button class="py-2 px-5 text-sm text-white rounded-md bg-black">
+                    <a href={% url "food_dishes" %} class="line-clamp-1">មុខម្ហូបទាំងអស់</a>
+                </button>
+                {% if request.user.is_authenticated %}
+                <button class="py-2 px-5 text-sm text-white rounded-md bg-blue-600">
+                    <a href={% url "dashboard" %} class="line-clamp-1">
+                        {% if first_name and last_name %}
+                            {{request.user.first_name}} {{request.user.last_name}}
+                        {% else %}
+                            {{request.user.username}}
+                        {% endif %}
+                    </a>
+                </button>
+                {% else %}
+                <button class="py-2 px-5 text-sm text-white rounded-md bg-blue-600">
+                    <a href={% url "login" %} class="line-clamp-1">ចុះឈ្មោះដើម្បីបានប្រូម៉ូសិន</a>
+                </button>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="max-w-screen-lg mx-auto p-5">
+        <center><h1 class="mb-6 text-2xl font-bold">មុខម្ហូបពិសេស<span class="text-red-600">សម្រាប់អ្នក</span></h1></center>
+        <div class="st-cards-list mt-10">
+            {% for food in foods %}
+            <a href={% url "food_details" food.id %}
+                class="bg-white border border-gray-100 transition h-fit duration-400 hover:border-blue-500 hover:shadow-xl max-w-52 p-5 sm:p-4 rounded-lg relative">
+                <span class="bg-blue-100 text-[85%] border border-blue-500 rounded-full poppins px-4 py-1 mb-2">
+                    {{ food.category }}
+                </span>
+                <img class="mx-auto mt-4 w-full sm:w-[80%] px-6 object-cover transition duration-300 hover:scale-105"
+                    src="{% static food.image_relative_url %}" alt="">
+            
+                <div class="flex flex-col mt-4 space-y-1">
+                    <h1 class="text-gray-900 poppins text-[100%] line-clamp-1">{{ food.title }}</h1>
+                    <p class="text-gray-500 poppins text-sm line-clamp-1 sm:line-clamp-2">{{ food.description }}</p>
+                    {% if food.special_price %}
+                    <div class="flex items-center gap-2">
+                        <p class="text-blue-900 poppins text-md font-bold whitespace-nowrap">{{food.special_price}}៛</p>
+                        <del class="text-sm text-blue-500 whitespace-nowrap"><small>{{food.price}}៛</small></del>
+                    </div>
+                    {% else %}
+                    <p class="text-blue-900 poppins text-md font-bold whitespace-nowrap">{{ food.price }}៛</p>
+                    {% endif %}
+                </div>
+                <button
+                    class="absolute right-4 bottom-4 bg-white w-8 h-8 rounded-full shadow-[rgba(100,100,111,0.2)_0px_7px_29px_0px] flex items-center justify-center duration-300 text-blue-900 hover:scale-105">
+                    <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M10.75 8.75L14.25 12L10.75 15.25"></path>
+                    </svg>
+                </button>
+            </a>
+            {% endfor %}
+        </div>
+        <center><button class="mt-10 py-2 px-5 text-sm text-white rounded-md bg-black">
+            <a href={% url "food_dishes" %}>មុខម្ហូបច្រើនទៀត</a>
+        </button></center>
+    </div>
+{% endblock content %}

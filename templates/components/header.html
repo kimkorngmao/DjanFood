@@ -1,0 +1,39 @@
+{% load static %}
+
+<header class="flex items-center justify-between bg-white py-4 px-8 z-50 sticky top-0 left-0 shadow-sm">
+    <a href={% url "home" %} class="logo">
+        <img src={% static "images/logo.svg" %} alt="" height="18" width="auto">
+    </a>
+    <ul class="hidden items-center gap-8 md:flex">
+        <li><a href={% url "home" %} class="st-nav-bar-link duration-200 hover:text-blue-500">ទំព័រដើម</a></li>
+        <li><a href={% url "food_dishes" %} class="st-nav-bar-link duration-200 hover:text-blue-500">មុខម្ហូប</a></li>
+        <li><a href={% url "about" %} class="st-nav-bar-link duration-200 hover:text-blue-500">អំពីយើង</a></li>
+    </ul>
+
+    <div class="nav-icon flex space-x-4">
+        <a href={% url 'search' %} class="duration-200 hover:text-red-500">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M11 2C15.968 2 20 6.032 20 11C20 15.968 15.968 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2ZM11 18C14.8675 18 18 14.8675 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18ZM19.4853 18.0711L22.3137 20.8995L20.8995 22.3137L18.0711 19.4853L19.4853 18.0711Z" fill="currentColor"></path></svg>
+        </a>
+        <a href={% url 'dashboard' %} class="duration-200 hover:text-red-500">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M20 22H18V20C18 18.3431 16.6569 17 15 17H9C7.34315 17 6 18.3431 6 20V22H4V20C4 17.2386 6.23858 15 9 15H15C17.7614 15 20 17.2386 20 20V22ZM12 13C8.68629 13 6 10.3137 6 7C6 3.68629 8.68629 1 12 1C15.3137 1 18 3.68629 18 7C18 10.3137 15.3137 13 12 13ZM12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" fill="currentColor"></path></svg>
+        </a>
+        <a href={% url "cart" %} class="relative duration-200 hover:text-red-500">
+            {% if cart_count > 0 %}
+            <div class="absolute top-[-2px] left-3 text-sm flex items-center justify-center bg-blue-500 text-white w-[16px] h-[16px] rounded-full"><small>{{cart_count}}</small></div>
+            {% endif %}
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM6.00436 7.00265V13.0027H17.5163L19.3163 7.00265H6.00436ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z" fill="currentColor"></path></svg>
+        </a>
+        <label id="toggler" class="cursor-pointer md:hidden duration-200 hover:text-red-500">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M3 4H21V6H3V4ZM9 11H21V13H9V11ZM3 18H21V20H3V18Z" fill="currentColor"></path></svg>
+        </label>
+    </div>
+
+    <div class="absolute left-0 top-[57px] w-full p-4 bg-white shadow-md md:hidden hidden" id="mobile-menu">
+        <ul class="flex flex-col items-center gap-4">
+            <li><a href={% url "home" %} class="st-nav-bar-link p-2 duration-200 hover:text-red-500">ទំព័រដើម</a></li>
+            <li><a href={% url "food_dishes" %} class="st-nav-bar-link p-2 duration-200 hover:text-red-500">មុខម្ហូប</a></li>
+            <li><a href={% url "about" %} class="st-nav-bar-link p-2 duration-200 hover:text-red-500">អំពីយើង</a></li>
+            <!-- Add more navigation items as needed -->
+        </ul>
+    </div>
+</header>

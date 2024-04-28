@@ -1,0 +1,239 @@
+Food.objects.create(
+    id=663,
+    title='Spaghetti Bolognese',
+    price=8000,
+    category='Pasta',
+    special_price=None,
+    is_premium=False,
+    promotion_end_at=None,
+    description='Classic Italian dish with meat sauce.',
+    image_relative_url='images/food-20.png',
+)
+
+Food.objects.create(
+    id=664,
+    title='Margherita Pizza',
+    price=7000,
+    category='Pizza',
+    special_price=6000,
+    is_premium=True,
+    promotion_end_at=None,
+    description='Fresh tomatoes, mozzarella, and basil.',
+    image_relative_url='images/food-19.png',
+)
+
+Food.objects.create(
+    id=665,
+    title='Chicken Caesar Salad',
+    price=10500,
+    category='Salad',
+    special_price=None,
+    is_premium=False,
+    promotion_end_at=None,
+    description='Grilled chicken, romaine lettuce, and Caesar dressing.',
+    image_relative_url='images/food-18.png',
+)
+
+Food.objects.create(
+    id=666,
+    title='Beef Burger',
+    price=20000,
+    category='Burger',
+    special_price=None,
+    is_premium=False,
+    promotion_end_at=None,
+    description='Juicy beef patty with lettuce, tomato, and cheese.',
+    image_relative_url='images/food-17.png',
+)
+
+Food.objects.create(
+    id=667,
+    title='Vegetarian Sushi Roll',
+    price=9000,
+    category='Sushi',
+    special_price=None,
+    is_premium=True,
+    promotion_end_at=None,
+    description='Avocado, cucumber, and carrot rolled in sushi rice.',
+    image_relative_url='images/food-16.png',
+)
+
+Food.objects.create(
+    id=668,
+    title='Chocolate Brownie Sundae',
+    price=9800,
+    category='Dessert',
+    special_price=None,
+    is_premium=False,
+    promotion_end_at=None,
+    description='Warm chocolate brownie with vanilla ice cream.',
+    image_relative_url='images/food-15.png',
+)
+
+Food.objects.create(
+    id=669,
+    title='Chicken Alfredo',
+    price=25000,
+    category='Pasta',
+    special_price=None,
+    is_premium=True,
+    promotion_end_at=None,
+    description='Creamy Alfredo sauce with grilled chicken.',
+    image_relative_url='images/food-14.png',
+)
+
+Food.objects.create(
+    id=670,
+    title='Mango Tango Smoothie',
+    price=13000,
+    category='Beverage',
+    special_price=10000,
+    is_premium=False,
+    promotion_end_at=None,
+    description='Fresh mango blended with yogurt and ice.',
+    image_relative_url='images/food-13.png',
+)
+
+Food.objects.create(
+    id=671,
+    title='Caprese Salad',
+    price=6000,
+    category='Salad',
+    special_price=None,
+    is_premium=False,
+    promotion_end_at=None,
+    description='Tomato, mozzarella, and basil drizzled with balsamic glaze.',
+    image_relative_url='images/food-12.png',
+)
+
+Food.objects.create(
+    id=672,
+    title='Shrimp Tacos',
+    price=8500,
+    category='Tacos',
+    special_price=None,
+    is_premium=False,
+    promotion_end_at=None,
+    description='Grilled shrimp with salsa and cabbage slaw.',
+    image_relative_url='images/food-11.png',
+)
+
+Food.objects.create(
+    id=673,
+    title='Pineapple Fried Rice',
+    price=10000,
+    category='Rice Dish',
+    special_price=None,
+    is_premium=True,
+    promotion_end_at=None,
+    description='Fried rice with pineapple, vegetables, and soy sauce.',
+    image_relative_url='images/food-10.png',
+)
+
+Food.objects.create(
+    id=674,
+    title='Classic Caesar Salad',
+    price=7500,
+    category='Salad',
+    special_price=None,
+    is_premium=False,
+    promotion_end_at=None,
+    description='Romaine lettuce, croutons, and Caesar dressing.',
+    image_relative_url='images/food-9.png',
+)
+
+Food.objects.create(
+    id=675,
+    title='Veggie Wrap',
+    price=6300,
+    category='Wrap',
+    special_price=None,
+    is_premium=False,
+    promotion_end_at=None,
+    description='Grilled vegetables wrapped in a tortilla.',
+    image_relative_url='images/food-8.png',
+)
+
+Food.objects.create(
+    id=676,
+    title='Hawaiian Pizza',
+    price=45000,
+    category='Pizza',
+    special_price=25000,
+    is_premium=True,
+    promotion_end_at=None,
+    description='Ham, pineapple, and cheese on a thin crust.',
+    image_relative_url='images/food-7.png',
+)
+
+Food.objects.create(
+    id=677,
+    title='BBQ Chicken Wings',
+    price=9000,
+    category='Appetizer',
+    special_price=None,
+    is_premium=False,
+    promotion_end_at=None,
+    description='Crispy chicken wings with barbecue sauce.',
+    image_relative_url='images/food-6.png',
+)
+
+Food.objects.create(
+    id=678,
+    title='Spinach and Feta Stuffed Chicken',
+    price=6700,
+    category='Main Course',
+    special_price=None,
+    is_premium=True,
+    promotion_end_at=None,
+    description='Chicken breast stuffed with spinach and feta.',
+    image_relative_url='images/food-5.png',
+)
+
+Food.objects.create(
+    id=679,
+    title='Strawberry Cheesecake',
+    price=10500,
+    category='Dessert',
+    special_price=None,
+    is_premium=False,
+    promotion_end_at=None,
+    description='Creamy cheesecake with strawberry topping.',
+    image_relative_url='images/food-4.png',
+)
+
+Food.objects.create(
+    id=680,
+    title='Mushroom Risotto',
+    price=7000,
+    category='Risotto',
+    special_price=None,
+    is_premium=True,
+    promotion_end_at=None,
+    description='Creamy risotto with mushrooms and Parmesan cheese.',
+    image_relative_url='images/food-3.png',
+)
+
+Food.objects.create(
+    id=681,
+    title='Caramel Macchiato',
+    price=5700,
+    category='Beverage',
+    special_price=None,
+    is_premium=False,
+    promotion_end_at=None,
+    description='Espresso with steamed milk and caramel syrup.',
+    image_relative_url='images/food-2.png',
+)
+
+Food.objects.create(
+    id=682,
+    title='Tiramisu',
+    price=12000,
+    category='Dessert',
+    special_price=None,
+    is_premium=False,
+    promotion_end_at=None,
+    description='Italian dessert with layers of coffee-soaked ladyfingers and mascarpone.',
+    image_relative_url='images/food-1.jpg',
+)

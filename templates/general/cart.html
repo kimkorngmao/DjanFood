@@ -1,0 +1,68 @@
+{% extends "components/base.html" %}
+{% load static %}
+{% block title %}កន្រ្តកទំទិញ{% endblock title %}
+
+{% block content %}
+<main id="main-container" class="max-w-screen-lg mx-auto p-5">
+    <ul class="-my-6 divide-y divide-gray-200 max-w-3xl mx-auto">
+      {% for cart in carts %}
+        <li class="flex py-6">
+          <a href={% url "food_details" cart.food.id %} class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+            <img src="{% static cart.food.image_relative_url %}" alt="" class="h-full w-full object-cover object-center">
+          </a>
+          <div class="ml-4 flex flex-1 flex-col">
+            <div>
+              <div class="flex justify-between text-base font-medium text-gray-900">
+                <h3>
+                  <p class="line-clamp-1">{{ cart.food.title }}</p>
+                </h3>
+                <div class="">
+                  {% if cart.food.special_price %}
+                  <div class="text-sm whitespace-nowrap text-blue-700">{{ cart.food.special_price }}រៀល</div>
+                  <small><del class="text-red-500 text-small">{{ cart.food.price }}​រៀល</del></small>
+                  {% else %}
+                  <p class="whitespace-nowrap text-blue-700">{{ cart.food.price }}​រៀល</p>
+                  {% endif %}
+                </div>
+              </div>
+              <p class="mt-1 text-sm text-gray-500 line-clamp-2">{{ cart.food.description }}</p>
+            </div>
+            <div class="flex flex-1 items-end justify-between text-sm">
+              <p class="text-gray-500">x{{ cart.quantity }}</p>
+
+              <form method="POST" action={% url "remove_cart" cart.food.id %} class="flex">
+                {% csrf_token %}
+                <button type="submit" class="font-medium text-red-600 hover:text-red-500">Remove</button>
+              </form>
+            </div>
+          </div>
+        </li>
+      {% empty %}
+        <div class="w-full h-[500px] flex items-center justify-center">
+          <div class="text-center">
+            <img src={% static 'images/shopping.png' %} alt="" class="w-20 h-20 mx-auto">
+            <p class="text-gray-400">Your cart is empty.</p>
+            <a href={% url "food_dishes" %} class="font-medium text-indigo-600 hover:text-indigo-500"><small>Continue Shopping &rarr;</small></a>
+          </div>
+        </div>
+      {% endfor %}
+      {% if carts %}
+      <div class="border-t border-gray-200 py-6">
+        <div class="flex justify-between text-base font-medium text-gray-900">
+          <p>Subtotal</p>
+          <p>{{total_cart_price}}រៀល</p>
+        </div>
+        <p class="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
+        <div class="mt-6">
+          <button type="button" id="checkout-button" class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Checkout</button>
+        </div>
+      </div>
+      {% endif %}
+    </ul>
+</main>
+{% endblock content %}
+
+{% block scripts %}
+  <script src={% static 'js/cart.js' %}></script>
+  <script src="{% static 'js/browser.js' %}"></script>
+{% endblock scripts %}

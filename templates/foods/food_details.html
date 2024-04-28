@@ -1,0 +1,60 @@
+{% extends "components/base.html" %}
+{% load static %}
+{% block title %}{{food.title}}{% endblock title %}
+
+{% block content %}
+<main id="main-container" class="max-w-screen-lg mx-auto p-5">
+    <div class="flex flex-col items-center md:flex-row md:items-stretch gap-10 mt-10">
+        <div class="w-full max-w-[403px] md:w-60 h-60 min-w-60 bg-zinc-100 rounded shadow-md flex items-center justify-center">
+            <img src="{% static food.image_relative_url %}" class="w-52 h-52 object-cover" alt="">
+        </div>
+        <div class="w-full max-w-[403px]">
+            <span class="bg-blue-100 border border-blue-500 rounded-full text-primary text-sm poppins px-4 py-1 inline-block mb-2">
+                {{food.category}}
+            </span>
+            <h1 class="font-bold text-2xl">{{food.title}}</h1>
+            <p>{{food.description}}</p>
+            {% if food.special_price %}
+            <div class="flex items-center gap-2">
+                <p class="text-xl text-blue-500">{{food.special_price}} រៀល</p>
+                <del class="text-base text-red-500">{{food.price}} រៀល</del>
+            </div>
+            {% else %}
+            <p class="text-xl text-blue-500">{{food.price}} រៀល</p>
+            {% endif %}
+            <form method="POST" action={% url "food_details" food.id %} class="mt-3">
+                {% csrf_token %}
+                <div class="flex gap-4">
+                    <label class="block mb-2 text-sm font-medium text-gray-900">Choose quantity:</label>
+                    <button type="button" id="decrement-button" class="w-6 h-6 rounded flex items-center justify-center bg-zinc-100">
+                        <svg class="w-2.5 h-2.5 text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
+                        </svg>
+                    </button>
+                    <input type="text" id="food-quantity" name="food-quantity" class="w-5 h-6 p-0 border-0 outline-none text-center" value="{{food_in_cart_quantity}}" readonly="true">
+                    <button type="button" id="increment-button" class="w-6 h-6 rounded flex items-center justify-center bg-zinc-100">
+                        <svg class="w-2.5 h-2.5 text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="mt-4 flex items-center gap-4">
+                    <button type="submit" class="rounded px-5 py-2 bg-blue-500 text-white active:scale-95">ដាក់ចូលកន្ត្រក់</button>
+                    <button type="button" id="buy-now-button" class="rounded px-5 py-2 bg-red-500 text-white">ទិញឥឡូវនេះ</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% if cart_items_count > 0 %}
+    <div class="mt-5 px-7 py-4 rounded max-w-[700px] bg-green-500 flex items-center justify-between text-white">
+        <p><span class="text-base font-medium">ក្នុងកន្ត្រក់​ • </span>{{cart_items_count}}មុខ</p>
+        <p>{{total_cart_price}}រៀល</p>
+    </div>
+    {% endif %}
+</main>
+{% endblock content %}
+
+{% block scripts %}
+<script src="{% static 'js/browser.js' %}"></script>
+<script src="{% static 'js/food.js' %}"></script>
+{% endblock scripts %}

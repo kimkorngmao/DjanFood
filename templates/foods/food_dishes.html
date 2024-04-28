@@ -1,0 +1,39 @@
+{% extends "components/base.html" %}
+{% load static %}
+{% block title %}មុខម្ហូប{% endblock title %}
+
+{% block content %}
+<main id="main-container" class="max-w-screen-lg mx-auto p-5">
+    <h1 class="mb-6 px-5 text-xl font-bold">មុខម្ហូបទាំងអស់</h1>
+    <div class="st-cards-list">
+        {% for food in foods %}
+        <a href={% url "food_details" food.id %}
+            class="bg-white border border-gray-100 transition h-fit duration-400 hover:border-blue-500 hover:shadow-xl max-w-52 p-5 sm:p-4 rounded-lg relative">
+            <span class="bg-blue-100 text-[85%] border border-blue-500 rounded-full poppins px-4 py-1 mb-2">
+                {{ food.category }}
+            </span>
+            <img class="mx-auto mt-4 w-full sm:w-[80%] px-6 object-cover transition duration-300 hover:scale-105"
+                src="{% static food.image_relative_url %}" alt="">
+
+            <div class="flex flex-col mt-4 space-y-1">
+                <h1 class="text-gray-900 poppins text-[100%] line-clamp-1">{{ food.title }}</h1>
+                <p class="text-gray-500 poppins text-sm line-clamp-1 sm:line-clamp-2">{{ food.description }}</p>
+                {% if food.special_price %}
+                <div class="flex items-center gap-2">
+                    <p class="text-blue-900 poppins text-md font-bold whitespace-nowrap">{{food.special_price}}៛</p>
+                    <del class="text-sm text-blue-500 whitespace-nowrap"><small>{{food.price}}៛</small></del>
+                </div>
+                {% else %}
+                <p class="text-blue-900 poppins text-md font-bold whitespace-nowrap">{{ food.price }}៛</p>
+                {% endif %}
+            </div>
+            <button class="absolute right-4 bottom-4 bg-white w-8 h-8 rounded-full shadow-[rgba(100,100,111,0.2)_0px_7px_29px_0px] flex items-center justify-center duration-300 text-blue-900 hover:scale-105">
+                <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.75 8.75L14.25 12L10.75 15.25"></path>
+                </svg>
+            </button>
+        </a>
+        {% endfor %}
+    </div>
+</main>
+{% endblock content %}

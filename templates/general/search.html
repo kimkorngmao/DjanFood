@@ -1,0 +1,31 @@
+{% extends "components/base.html" %}
+{% load static %}
+{% block title %}ស្វែងរក{% endblock title %}
+
+{% block content %}
+<main id="main-container" class="max-w-screen-lg mx-auto p-5">
+    <h1 class="text-xl font-bold mb-4">ស្វែងរក</h1>
+    <form id="search-form">
+        <div class="relative">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                </svg>
+            </div>
+            <input type="search" id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="បញ្ចូលការស្វែងរក..." required>
+            <button type="button" class="absolute inset-y-0 end-0 md:end-20 flex items-center pe-3">
+                <svg class="w-4 h-4 text-gray-500 hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7v3a5.006 5.006 0 0 1-5 5H6a5.006 5.006 0 0 1-5-5V7m7 9v3m-3 0h6M7 1h2a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V4a3 3 0 0 1 3-3Z"/>
+                </svg>
+            </button>
+            <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 hidden md:block">ស្វែងរក</button>
+        </div>
+    </form>
+    <p class="text-red-500">Sorry, Search function is not available in this version.</p>
+</main>
+<script>
+    document.getElementById('search-form').addEventListener('submit',(e)=>{
+        e.preventDefault()
+    })
+</script>
+{% endblock content %}

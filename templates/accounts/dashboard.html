@@ -1,0 +1,56 @@
+{% extends "components/base.html" %}
+{% load static %}
+{% block title %}Dashboard{% endblock title %}
+
+{% block content %}
+<main id="main-container" class="max-w-screen-lg mx-auto p-5">
+    <div>
+        <h1 class="text-xl font-bold">សួស្តី {{ request.user.username }}</h1>
+        <div class="my-5 flex gap-4">
+            <a href="/account/dashboard/" class="text-blue-600 hover:text-red-500 hover:underline duration-150">គ្រប់គ្រង</a>
+            <a href={% url "update_profile" %} class="text-blue-600 hover:text-red-500 hover:underline duration-150">ព័ត៍មានផ្ទាល់ខ្លួន</a>
+            <a href={% url "change_password" %} class="text-blue-600 hover:text-red-500 hover:underline duration-150">ប្តូរលេខសម្ងាត់</a>
+            <a href={% url "logout" %} class="text-red-600">ចេញពីប្រព័ន្ធ</a>
+        </div>
+        <h1 class="text-lg font-bold">បន្ថែមមុខម្ហូបថ្មី</h1>
+        <p class="text-slate-500 mt-5 border-l-2 px-3 border-red-500 border-solid">សម្រាប់តែ Super User ប៉ុណ្ណោះដែលមានសិទ្ធក្នុងការបន្ថែមមុខម្ហូបថ្មី</p>
+        <form method="POST" class="max-w-md mt-5">
+            {% csrf_token %}
+            {% include "components/error_messages.html" %}
+            <div class="mb-5">
+                <label for="food-title" class="block mb-2 text-sm font-medium text-gray-900">ឈ្មោះម្ហូប<span class="text-red-500">*</span></label>
+                <input type="text" name="food_title" id="food-title" value="{{title}}" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required="">
+            </div>
+            <div class="mb-5">
+                <label for="food-desc" class="block mb-2 text-sm font-medium text-gray-900">បរិយាយ<span class="text-red-500">*</span></label>
+                <input type="text" name="food_desc" id="food-desc" value="{{description}}" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required="">
+            </div>
+            <div class="mb-5">
+                <label for="food-price" class="block mb-2 text-sm font-medium text-gray-900">តម្លៃ<span class="text-red-500">*</span></label>
+                <input type="number" name="food_price" id="food-price"  value="{{price}}" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required="">
+            </div>
+            <div class="mb-5">
+                <label for="food-special-price" class="block mb-2 text-sm font-medium text-gray-900">តម្លៃពិសេស</label>
+                <input type="number" name="food_special_price" id="food-special-price"  value="{{special_price}}" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5">
+            </div>
+            <div class="mb-5">
+                <label for="food-category" class="block mb-2 text-sm font-medium text-gray-900">ប្រភេទ<span class="text-red-500">*</span></label>
+                <input type="text" name="food_category" id="food-category"  value="{{category}}" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required="">
+            </div>
+            <div class="mb-5">
+                <label for="food-end-promotion" class="block mb-2 text-sm font-medium text-gray-900">ថ្ងៃផុតប្រូម៉ូសិន</label>
+                <input type="date" name="food_end_promotion" id="food-end-promotion"  value="{{promotion_end_at}}" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5">
+            </div>
+            <div class="mb-5">
+                <label for="food-image" class="block mb-2 text-sm font-medium text-gray-900">រូបភាព<span class="text-red-500">*</span> <span class="text-red-500">(Static image url)</span></label>
+                <input type="text" name="food_image" id="food-image"  value="{{image_relative_url}}" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required="">
+            </div>
+            <button class="bg-blue-600 text-white rounded-md py-1 px-5">រក្សាទុក</button>
+        </form>
+    </div>
+</main>
+{% endblock content %}
+
+{% block scripts %}
+  <script src="{% static 'js/form_browser.js' %}"></script>
+{% endblock scripts %}

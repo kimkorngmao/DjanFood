@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@200;300;400;500;600&display=swap');
+
+*{
+    font-family: 'Kantumruy Pro', sans-serif;
+    scrollbar-width: 0;
+}
+
+*::-webkit-scrollbar{
+    display: none;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+#home-landing{
+    background-color: #EEEEEE;
+    background-image: url('../images/home-bg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#main-container{
+    min-height: calc(100vh - 224px);
+}
+
+.st-cards-list{
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+@media screen and (max-width: 870px) {
+    .st-cards-list{
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .st-cards-list{
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .st-cards-list{
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    }
+}

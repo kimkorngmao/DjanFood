@@ -1,0 +1,46 @@
+{% extends "components/base.html" %}
+{% load static %}
+{% block title %}ព័ត៍មានផ្ទាល់ខ្លួន{% endblock title %}
+
+{% block content %}
+<main id="main-container" class="max-w-screen-lg mx-auto p-5">
+    <div>
+        <h1 class="text-xl font-bold">សួស្តី {{ request.user.username }}</h1>
+        <div class="my-5 flex gap-4">
+            <a href={% url 'dashboard' %} class="text-blue-600 hover:text-red-500 hover:underline duration-150">គ្រប់គ្រង</a>
+            <a href={% url "update_profile" %} class="text-blue-600 hover:text-red-500 hover:underline duration-150">ព័ត៍មានផ្ទាល់ខ្លួន</a>
+            <a href={% url "change_password" %} class="text-blue-600 hover:text-red-500 hover:underline duration-150">ប្តូរលេខសម្ងាត់</a>
+            <a href={% url "logout" %} class="text-red-600">ចេញពីប្រព័ន្ធ</a>
+        </div>
+        <h1 class="text-lg font-bold">ព័ត៍មានផ្ទាល់ខ្លួន</h1>
+        <form method="POST" class="max-w-md mt-5">
+            {% csrf_token %}
+            {% include "components/error_messages.html" %}
+            
+            <div class="flex items-center gap-4">
+                <div class="mb-5 w-full">
+                    <label for="first-name" class="block mb-2 text-sm font-medium text-gray-900">នាមត្រកូល</label>
+                    <input type="text" name="first-name" id="first-name" value="{{ request.user.first_name }}" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required="">
+                </div>
+                <div class="mb-5 w-full">
+                    <label for="last-name" class="block mb-2 text-sm font-medium text-gray-900">នាមខ្លួន</label>
+                    <input type="text" name="last-name" id="last-name" value="{{ request.user.last_name }}" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required="">
+                </div>
+            </div>
+            <div class="mb-5">
+                <label for="username" class="block mb-2 text-sm font-medium text-gray-900">ឈ្មោះអ្នកប្រើប្រាស់</label>
+                <input type="text" name="username" id="username" value="{{ request.user.username }}" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required="">
+            </div>
+            <div class="mb-5">
+                <label for="email" class="block mb-2 text-sm font-medium text-gray-900">អ៊ីម៉ែល</label>
+                <input type="email" name="email" id="email" value="{{ request.user.email }}" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required="">
+            </div>
+            <button class="bg-blue-600 text-white rounded-md py-1 px-5">រក្សាទុក</button>
+        </form>
+    </div>
+</main>
+{% endblock content %}
+
+{% block scripts %}
+  <script src="{% static 'js/form_browser.js' %}"></script>
+{% endblock scripts %}
