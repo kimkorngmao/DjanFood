@@ -12,7 +12,6 @@ Welcome to the Mini Online Food Ordering System. This web application is designe
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [Preview](#preview)
 
 ## Features
 
