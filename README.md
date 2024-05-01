@@ -55,7 +55,7 @@ Make sure you have the following dependencies installed:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/kimkorngmao/DjanFood.git
+   git clone https://github.com/maokimkorng/DjanFood.git
    cd DjanFood
    ```
 
